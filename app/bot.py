@@ -19,6 +19,7 @@ TEXT = os.environ.get("TEXT")
 
 client = commands.Bot(command_prefix='.')
 voice_client = None
+tc = ""
 
 @client.event
 async def on_ready():
@@ -28,8 +29,12 @@ async def on_ready():
 async def speech(ctx): # .speech command for connecting to VC.
     print('Retrieving user\'s current VC.')
     vc = ctx.author.voice.channel
+    global tc
+    tc = ctx.channel.id
     print('Connecting to VC.')
     await vc.connect()
+    # await ctx.send(f"Here's your mentioned channel ID: {ctx.channel.id}.")
+    # await ctx.send(f"tc is {tc}")
 
 @client.command()
 async def dare(ctx): # .dare command for disconnecting from VC.
@@ -38,16 +43,21 @@ async def dare(ctx): # .dare command for disconnecting from VC.
 
 @client.event
 async def on_message(message): # Retrieving messages to speech
+    global tc
     msgclient = message.guild.voice_client
     if message.content.startswith('.'): # Messages starting with . should be command, passing.
         pass
-
     else:
-        if message.guild.voice_client:
-            print(message.content)
-            WAV(message.content)
-            source = discord.FFmpegPCMAudio("output.wav")
-            message.guild.voice_client.play(source)
+        # await message.channel.send("tc: {}".format(tc))
+        # await message.channel.send("message.channel: {}".format(message.channel.id))
+        if message.channel.id == tc:
+            if message.guild.voice_client:
+                print(message.content)
+                WAV(message.content)
+                source = discord.FFmpegPCMAudio("./data/output.wav")
+                message.guild.voice_client.play(source)
+            else:
+                pass
         else:
             pass
     await client.process_commands(message)

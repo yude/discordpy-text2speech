@@ -1,2 +1,4 @@
 discord
 ffmpeg
+python-dotenv
+pynacl

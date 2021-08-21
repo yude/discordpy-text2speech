@@ -41,4 +41,4 @@ RUN wget http://downloads.sourceforge.net/open-jtalk/open_jtalk_dic_utf_8-1.09.t
 WORKDIR /app
 
 # Run bot
-CMD ["python", "bot.py"]
+ENTRYPOINT ["python", "bot.py"]
