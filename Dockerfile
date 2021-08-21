@@ -5,7 +5,7 @@ ADD ./app /app
 
 # Install dependencies
 WORKDIR /app
-RUN apt -y update; apt -y upgrade; apt -y install libffi-dev wget git build-essential
+RUN apt -y update; apt -y upgrade; apt -y install libffi-dev wget git build-essential ffmpeg
 RUN pip install -r requirements.txt
 
 # Setup Open JTalk
