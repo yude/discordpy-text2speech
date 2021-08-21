@@ -14,8 +14,6 @@ from generator import WAV
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 TOKEN = os.environ.get("TOKEN")
-VOICE = os.environ.get("VOICE")
-TEXT = os.environ.get("TEXT")
 
 client = commands.Bot(command_prefix='.')
 voice_client = None
