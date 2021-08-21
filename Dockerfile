@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM python:latest
 
 # Load source files
 ADD ./app /app
