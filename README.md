@@ -1,6 +1,20 @@
 # discord-text2speech
 👄 Discord simple text-to-speech Bot
 
+## Docker Compose
+Create `docker-compose.yml` and paste below, then set `TOKEN` variable, and finally run `docker-compose up -d`.
+```
+version: '3'
+services:
+  discord-text2speech:
+    restart: always
+    container_name: discord-text2speech
+    image: yude/discord-text2speech
+    environment:
+      # Discord bot token
+      - TOKEN=
+```
+
 ## License
 ### discord-text2speech
 This repository is licensed under the MIT License.
