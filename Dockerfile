@@ -4,6 +4,7 @@ FROM python:latest
 ADD ./app /app
 
 # Install dependencies
+WORKDIR /app
 RUN apt -y update; apt -y upgrade; apt -y install libffi-dev wget git build-essential
 RUN pip install -r requirements.txt
 
