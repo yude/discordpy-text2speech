@@ -1,13 +1,10 @@
 version: '3'
 services:
-  attendance-alarm:
+  discord-text2speech:
     restart: always
     container_name: discord-text2speech
+    build: .
     image: yude/discord-text2speech
     environment:
     # Discord bot token
     - TOKEN=
-    # Text channel which this bot works on
-    - TEXT=
-    # Voice channel which this bot works on
-    - VOICE=

@@ -1,0 +1,21 @@
+*** jpcommon/jpcommon_label.c.orig      2012-12-24 17:18:53.000000000 +0900
+--- jpcommon/jpcommon_label.c   2013-05-27 16:35:45.195252424 +0900
+***************
+*** 284,289 ****
+--- 284,290 ----
+        if (index == a)
+           break;
+     }
++    if (i > 3) i = 3;
+     return i;
+  }
+
+***************
+*** 383,388 ****
+--- 384,390 ----
+
+     for (i = 0, index = m->next; index != NULL; index = index->next)
+        i++;
++    if (i > 10) i = 10;
+     return index_mora_in_utterance(m) + i;
+  }
