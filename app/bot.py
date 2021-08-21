@@ -31,8 +31,6 @@ async def speech(ctx): # .speech command for connecting to VC.
     tc = ctx.channel.id
     print('Connecting to VC.')
     await vc.connect()
-    # await ctx.send(f"Here's your mentioned channel ID: {ctx.channel.id}.")
-    # await ctx.send(f"tc is {tc}")
 
 @client.command()
 async def dare(ctx): # .dare command for disconnecting from VC.
@@ -46,8 +44,6 @@ async def on_message(message): # Retrieving messages to speech
     if message.content.startswith('.'): # Messages starting with . should be command, passing.
         pass
     else:
-        # await message.channel.send("tc: {}".format(tc))
-        # await message.channel.send("message.channel: {}".format(message.channel.id))
         if message.channel.id == tc:
             if message.guild.voice_client:
                 print(message.content)
